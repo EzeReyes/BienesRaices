@@ -1,0 +1,63 @@
+MÉTODOS HTTP
+GET - Utilizado para mostrar información.(Ejemplo: cuando un usuario visita el sitio, y debo mostrarle información)
+POST - Utilizado para Enviar información.(Ejemplo: cuando un usuario completa información de un formulario y debo procesarlo)
+PUT/PATCH - Utilizado para Actualizar información.
+DELETE - Utilizado para Eliminar información.
+
+
+Express soporta Routing y los diferentes métodos HTTP y puedo utilizarlos para Web o móvil.
+
+
+
+// const express = require('express') //CommonJS
+// el require, busca la dependencia en el archivo de node js, la extrae  y asigna para utilizarla
+
+
+// Crear la app, contiene toda la información del proyecto, es la instancia de express ----- const app = express()
+
+
+
+// Definir un puerto y arrancar el proyecto ----- const port = 3000;
+
+
+
+----------
+¿Qué es un Template Engine?
+
+O Motor de Plantilla, son tecnologías que nos permiten crear el código HTML y mostrar información contenida en variables de una forma más compacta y clara.
+
+Pug, Handlebars, EJS son las opciones más populares para Node.js.
+
+También es posible utilizar React, Angular, Svelte o Vue como tu Template Engine, pero necesitarás crear una API con respuesta JSON.
+
+
+----------
+
+MVC Model View Controller
+
+Es un patrón de arquitectura de software que permite la separación de obligaciones de cada pieza de tu código.
+
+Enfatiza la separación de la lógica de programación con la presentación.
+
+Ventajas: no mejora el performance del código, tampoco da seguridad, pero tu código tendrá un mejor orden y será fácil de mantener.
+
+En un grupo de trabajo, el tener código ordenado permite que más de una persona pueda entender que es lo que hace cada parte de él.
+
+Aprender MVC, hará que otras tecnologías como Laravel, Nest, Rails, Django, Net Core, Spring Boot te sean más sencillas de aprender.
+
+
+El modelo en MVC, sera el encargado de todas las interacciones en la base de datos, obtener datos, actualizarlos y eliminar.
+El modelo se encarga de consultar una base de datos, obtiene la información pero no la muestra, eso es trabajo de la vista.
+El modelo tampoco se encarga de actualizar la información directamente, es el Controlador quien decide cuándo llamarlo.
+
+La vista en MVC se encarga de todo lo que se ve en pantalla (HTML)
+Node soporta múltiples Template Engine como son EJS, Pug, Handlebars. Si utilizas React, Vue, Angular, Svelte, estos serían tu vista.
+El Modelo consulta la base de datos, pero es por medio del Controlador que se decide que Vista hay que llamar y que datos presentar.
+
+
+Controlador en MVC
+Es el que comunica modelo y vista antes de que el Modelo consulte la base de datos, el Controlador es el encargado de llamar un modelo en especifico.
+
+Router en MVC
+Es el encargado de registrar todas las URL's o Endpoints que va a soportar nuestra aplicación.
+Ejemplo: Si el Usuario accede a /clientes el router ya tiene registrada esa ruta y un controlador con una función que sabe que Modelo debe llamar y que vista mostrar cuando el usuario visita esa URL.
