@@ -61,3 +61,24 @@ Es el que comunica modelo y vista antes de que el Modelo consulte la base de dat
 Router en MVC
 Es el encargado de registrar todas las URL's o Endpoints que va a soportar nuestra aplicación.
 Ejemplo: Si el Usuario accede a /clientes el router ya tiene registrada esa ruta y un controlador con una función que sabe que Modelo debe llamar y que vista mostrar cuando el usuario visita esa URL.
+
+--------------
+
+¿Qué es un ORM?
+ORM son las iniciales de Object Relational Mapping
+Es una técnica que se utiliza donde los datos de una base de datos son tratados como Objetos, utilizando un paradigma de Programación Orientada a Objetos.
+
+Node.js tiene una gran cantidad de ORM's que se instalan como librería.
+
+En MVC, un ORM se relaciona bastante con el Modelo
+
+Ventajas de un ORM
+Comenzar a crear aplicaciones que utilicen bases de datos, sin necesidad de escribir código SQL y tampoco saber sobre modelado de base de datos.
+Velocidad en desarrollo ya que tienen una gran cantidad de métodos para crear, listar, actualizar o eliminar datos.
+La mayoría cuentan con todas las medidas de seguridad.
+
+Ejemplo de SQL:
+INSERT INTO`categorias` (`nombre`) VALUES ('Casa');
+
+Ejemplo con ORM:
+Categoria.create({nombre:'Casa'})

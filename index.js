@@ -1,8 +1,29 @@
 import express from 'express';
-import usuarioRoutes from './routes/usuarioRoutes.js'
+import csrf from 'csurf'
+import cookieParser from 'cookie-parser';
+import usuarioRoutes from './routes/usuarioRoutes.js';
+import db from './config/db.js';
 
 // Crear la app
 const app = express()
+
+// Habilitar lectura de datos de formularios
+app.use( express.urlencoded({extended: true}) )
+
+// Habilitar Cookie Parser
+app.use( cookieParser())
+
+// Habilitar Csrf
+app.use( csrf({ cookie: true }))
+// Conexión a la base de datos
+try {
+    await db.authenticate(),
+    db.sync()
+    console.log('Conexión Exitosa con la Base de datos')
+} catch (error) {
+    console.log(error)
+}
+
 
 // Habilitar Pug
 app.set('view engine', 'pug')
@@ -17,7 +38,7 @@ app.use('/auth', usuarioRoutes)
 
 
 // Definir un puerto y arrancar el proyecto
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`El Servidor esta funcionando en el puerto ${port}`)
 });
