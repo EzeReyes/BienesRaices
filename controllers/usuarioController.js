@@ -1,8 +1,8 @@
 import { check,validationResult } from 'express-validator'
-import Usuario from '../models/Usuario.js'
-import { generarId } from '../helpers/token.js'
-import { emailRegistro, emailOlvidePassword } from '../helpers/email.js'
 import bcrypt from 'bcrypt'
+import Usuario from '../models/Usuario.js'
+import { generarJWT, generarId } from '../helpers/token.js'
+import { emailRegistro, emailOlvidePassword } from '../helpers/email.js'
 
 
 const formularioLogin = (req,res) => {
@@ -67,13 +67,17 @@ if(!usuario.verificarPassword(password)) {
 }
 
 // Autenticar al usuario
+const token = generarJWT({ id: usuario.id, nombre: usuario.nombre })
+console.log(token)
 
 
-console.log('Cuenta confirmada')
+// Almacenar en un cookie
 
+return res.cookie('_token', token, {
+    httpOnly: true,
+    // secure: true
+}).redirect('/mis-propiedades')
 }
-
-
 
 const formularioRegistro = (req,res) => {
     res.render('auth/registro', {
@@ -285,7 +289,6 @@ const resetPassword = async (req,res) => {
             pagina: 'Password Reestablecido',
             mensaje: 'El Password se guardo correctamente'
         })
-
 
     }
 
