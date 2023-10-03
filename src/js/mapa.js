@@ -1,6 +1,6 @@
 (function() {
-    const lat = -38.0061923;
-    const lng = -57.5424873;
+    const lat = document.querySelector('#lat').value ||-38.0061923;
+    const lng = document.querySelector('#lng').value ||-57.5424873;
     const mapa = L.map('mapa').setView([lat, lng ], 14);
     let marker;
 
@@ -35,7 +35,7 @@
             document.querySelector('.calle').textContent = resultado?.address?.Address ?? '';
             document.querySelector('#calle').value = resultado?.address?.Address ?? '';
             document.querySelector('#lat').value = resultado?.latlng?.lat ?? '';
-            document.querySelector('#long').value = resultado?.latlng?.lng ?? '';
+            document.querySelector('#lng').value = resultado?.latlng?.lng ?? '';
         })
 
     })

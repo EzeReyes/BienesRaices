@@ -14,9 +14,6 @@ const categorias = [
     {
         nombre: 'Cabaña'
     },
-    {
-        nombre: 'Cochera'
-    },
 ]
 
 export default categorias

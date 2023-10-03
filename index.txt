@@ -82,3 +82,26 @@ INSERT INTO`categorias` (`nombre`) VALUES ('Casa');
 
 Ejemplo con ORM:
 Categoria.create({nombre:'Casa'})
+
+¿Qué son las Asociaciones?
+Las Asociaciones son formas de cruzar información en tu base de datos, Sequelize soporta todos los tipos de relaciones en una base de datos : 1:1, 1:N, N:N.
+La forma en que lo hace es por medio de métodos que ya existen en Sequelize.
+
+Métodos 
+
+hasOne 
+es para crear Relaciones 1:1, donde un registro puede tener hasta 1 registro relacionado en otra tabla.
+Ejemplo: Una Propiedad tiene un Vendedor, un Usuario tiene un Perfil, un Producto tiene una Categoria. 
+Sintaxis: Vendedor.hasOne(Propiedad), en este ejemplo: Propiedad deberá tener una llave foránea que haga referencia a un Vendedor, si no se especifica, Sequelize lo va a crear
+
+belongsTo
+Al igual que hasOne es para relaciones 1:1, donde un registro puede tener hasta 1 registro relacionado en otra tabla, la única diferencia es sinatis.
+Sintaxis: Propiedad.belongsTo(Vendedor)
+En este ejemplo, Propiedad deberá tener una llave foránea que haga referencia a un Vendedor, si no se especifica, Sequelize lo va a crear
+
+hasMany
+Es para crear Relaciones 1:N, donde un registro puede tener múltiples coincidencias o relaciones en otra tabla.
+Ejemplo: Un Vendedor tiene múltiples Posts, un Producto tiene múltiples Rewiews.
+
+Sintaxis: Vendedor.hasMany(Propiedad)
+
