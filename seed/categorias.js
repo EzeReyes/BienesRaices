@@ -9,9 +9,6 @@ const categorias = [
         nombre: 'Bodega'
     },
     {
-        nombre: 'Terreno'
-    },
-    {
         nombre: 'Cabaña'
     },
 ]

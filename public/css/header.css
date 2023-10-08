@@ -1,0 +1,36 @@
+.slidein {
+    font-size: 50px;
+    animation-duration: 10s;
+    animation-name: slidein;
+    animation-iteration-count: 1;
+    animation-direction:normal;
+    text-decoration: none;
+    transition: all ease-in 10s;
+    color: white;
+}
+
+@keyframes slidein {
+    0% {
+        color:rgb(37 99 235);
+    }
+    50% {
+        text-decoration:line-through;
+        text-decoration-color: rgba(242, 245, 245, 0.226);
+    }
+    100% {
+        text-decoration:underline;
+        text-decoration-color: white;
+        color: rgb(247, 248, 248);
+    }
+}
+
+.slidein h1 {
+        font-weight: 800;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        text-align: center;
+}
+
+.slidein span {
+    font-weight: 400;
+}
