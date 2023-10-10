@@ -1,8 +1,6 @@
 header.bg-blue-600.p-4
             .container.mx-auto.flex.justify-between.items-center
-                div.slidein
-                    h1 Bienes 
-                        span Raices
+                a(href="/" class="slidein") Bienes Raices
 
                 nav(class="my-5 text-sm md:flex md:items-center md:gap-3 font-bold text-white hidden")
                     a(href="/auth/registro") Crear Cuenta
@@ -10,7 +8,15 @@ header.bg-blue-600.p-4
 
 div(class="bg-blue-700 py-5 hidden lg:block")
     div(class="container mx-auto flex justify-between")
-        a(href="categorias/1" class="text-sm font-bold uppercase text-white") Casas 
-        a(href="categorias/2" class="text-sm font-bold uppercase text-white") Departamentos 
-        a(href="categorias/3" class="text-sm font-bold uppercase text-white") Bodegas 
-        a(href="categorias/4" class="text-sm font-bold uppercase text-white") Terrenos 
+        nav(class="flex gap-4 items-center")
+            a(href="/categorias/1" class="text-sm font-bold uppercase text-white") Casas 
+            a(href="/categorias/2" class="text-sm font-bold uppercase text-white") Departamentos 
+            a(href="/categorias/3" class="text-sm font-bold uppercase text-white") Cabañas 
+            a(href="/categorias/4" class="text-sm font-bold uppercase text-white") Terrenos 
+
+        form(action="/buscador" method="POST" class="flex gap-3 items-center")
+            input(type="hidden" name="_csrf" value= csrfToken)
+            label(for="termino" class="text-sm uppercase font-bold text-white") Búsqueda    
+            input(type="text" id="termino" name="termino" placeholder="Buscar Propeidades" class="p-2 rounded-lg shadow text-sm")
+            
+            input(type="submit" class="bg-blue-800 hover:bg-blue-400 rounded-lg text-white uppercase font-bold p-2 cursor-pointer text-sm" value="Buscar") 

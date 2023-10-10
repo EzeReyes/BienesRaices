@@ -345,12 +345,13 @@ const eliminar = async (req, res) => {
         if(!propiedad) {
         res.redirect('/404')
         }
-
+        else {
         res.render('propiedades/mostrar', {
             propiedad,
-            pagina: propiedad.titulo
-
+            pagina: `Propiedad: ${propiedad.titulo}`,
+            csrfToken: req.csrfToken()
         })
+    }
     }
 
 export {
