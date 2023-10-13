@@ -9,6 +9,7 @@ import Mensaje from './Mensaje.js'
 Propiedad.belongsTo(Precio, {foreignKey: 'precioID'})
 Propiedad.belongsTo(Categoria, {foreignKey: 'categoriaID'})
 Propiedad.belongsTo(Usuario, {foreignKey: 'usuarioID'})
+Propiedad.hasMany(Mensaje, { foreignKey: 'propiedadID' })
 
 Mensaje.belongsTo(Propiedad, { foreignKey: 'propiedadID'})
 Mensaje.belongsTo(Usuario, { foreignKey: 'usuarioID'})
