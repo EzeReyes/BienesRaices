@@ -1,5 +1,8 @@
 extends ../layout/admin
 
+block styles
+    meta(name="csrf-token" content= csrfToken)
+
 block contenido 
     .py-10
         h1.text-4xl.my-10.font-extrabold.text-center Bienes 
@@ -33,8 +36,7 @@ block contenido
                                     a(href=`/mensajes/${propiedad.id}` class="text-sm text-gray-600")= `${propiedad.mensajes.length} Mensajes`
 
                                 div(class="sm:w-1/4 md:w-2-6 lg:flex-1 flex flex-col lg:flex-row gap-2")
-                                    form(action="#")
-                                        input(type="submit" class=`w-full px-2 py-2 md:py-1 text-xs leading-5 font-semibold rounded cursor-pointer ${propiedad.Publicado ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-red-800'}` value=`${propiedad.Publicado ? 'Publicado' : 'No Publicado'}`)
+                                    button(type="button" data-propiedad-id=`${propiedad.id}` class=`cambiar-estado w-full px-2 py-2 md:py-1 text-xs leading-5 font-semibold rounded cursor-pointer ${propiedad.Publicado ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-red-800'}`)=`${propiedad.Publicado ? 'Publicado' : 'No Publicado'}`
                             
                                     a(href=`/propiedades/editar/${propiedad.id}` class="px-2 py-2 md:py-1 text-xs text-center leading-5 font-semibold rounded cursor-pointer bg-indigo-100 text-indigo-800") Editar
 
@@ -62,3 +64,7 @@ block contenido
                                     a(href=`/mis-propiedades?pagina=${n}` class=`${paginaActual == n ? 'bg-indigo-50 border-indigo-500 text-indigo-600' : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50 '} relative inline-flex items-center px-4 py-2 border text-sm font-medium`) #{n++}
         else 
             p.text-center No hay propiedades
+
+
+block scripts 
+    script(src="/js/cambiarEstado.js")

@@ -1,8 +1,11 @@
 import express from "express";
-import { formularioLogin, autenticar, formularioRegistro, formularioRestablecer, registrar, confirmar, resetPassword, comprobarToken, nuevoPassword } from "../controllers/usuarioController.js";
+import { formularioLogin, autenticar, cerrarSesion, formularioRegistro, formularioRestablecer, registrar, confirmar, resetPassword, comprobarToken, nuevoPassword } from "../controllers/usuarioController.js";
 
 
 const router = express.Router();
+
+// Cerrar sesión
+router.post('/cerrar-sesion', cerrarSesion)
 
 // Routing
 router.get('/login', formularioLogin)
